@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 """This node provides a service that returns a set of joints that achieves the desired end effector pose."""
 
