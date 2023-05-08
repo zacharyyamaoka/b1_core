@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 import sys
 import numpy as np
 import rospy
@@ -125,19 +125,19 @@ if __name__ == '__main__':
             actuator_angles[i] = get_actuator_positions(side)[i]
 
     # Calibrate base joint
-    raw_input("Press [Enter] when base joint is in calibration position")
+    input("Press [Enter] when base joint is in calibration position")
     save_positions(0)
 
     # Calibrate shoulder joints
-    raw_input("Press [Enter] when first link is in calibration position")
+    input("Press [Enter] when first link is in calibration position")
     save_positions(1, 2)
 
     # Calibrate elbow joints
-    raw_input("Press [Enter] when second link is in calibration position")
+    input("Press [Enter] when second link is in calibration position")
     save_positions(3, 4)
 
     # Calibrate wrist joints
-    raw_input("Press [Enter] when third link is in calibration position")
+    input("Press [Enter] when third link is in calibration position")
     save_positions(5, 6)
 
     # Computer actuator zeros and print

@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 """This node should run at startup, and sets the initial joint angles to some hardcoded values."""
 
