@@ -1,0 +1,44 @@
+blue_hardware:
+    ### Joint configuration
+    joint_names:
+        - right_base_roll_joint
+        - right_shoulder_lift_joint
+        - right_shoulder_roll_joint
+        - right_elbow_lift_joint
+        - right_elbow_roll_joint
+        - right_wrist_lift_joint
+        - right_wrist_roll_joint
+        - right_gripper_joint
+    baselink: right_base_link
+    endlink: right_gripper_finger_link
+    accel_links:
+        - right_base_link
+        - right_shoulder_roll_link
+        - right_elbow_roll_link
+        - right_wrist_roll_link
+        - right_end_roll_link
+    differential_pairs: [1, 2, 3, 4, 5, 6]
+    gear_ratios: [-7.1875, 7.1875, 8.2444852941, 7.1875, 8.24448529412, 7.1875, 8.24448529412, 14.4]
+    joint_torque_directions: [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]
+    id_torque_gains: [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]
+    softstop_min_angles: [-3.5, -2.45, -2.6, -2.45, -2.6, -2.45, -2.6, -1.65]
+    softstop_max_angles: [2.4, 0.6, 2.6, 0.6, 2.6, 0.6, 2.6, 1.65]
+    softstop_tolerance: 0.19
+    softstop_torque_limit: 95.0
+
+    ### Motor configuration
+    motor_names:
+        - base_roll_motor
+        - left_motor1
+        - right_motor1
+        - left_motor2
+        - right_motor2
+        - left_motor3
+        - right_motor3
+        - gripper_motor
+    motor_current_limits: [2.5, 2.5, 2.5, 2.0, 2.0, 1.0, 1.0, 1.0]
+    current_to_torque_ratios: [0.8522, 0.8522, 0.8522, 0.8522, 0.8522, 1.67, 1.67, 1.67]
+
+    ### Posture control parameters for gradient descent ik pose controller
+    posture_target: [-0.9, -1.57, 0.0, -1.57, -0.90, -1.0, 0.0]
+    posture_weights: [0.2, 1, 1, 1, 1, 0.2, 0.5]

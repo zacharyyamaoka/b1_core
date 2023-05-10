@@ -21,6 +21,8 @@ class BlueIK:
         self.tf_buffer = tf2_ros.Buffer(rospy.Duration(1.0)) # tf buffer length
         tf_listener = tf2_ros.TransformListener(self.tf_buffer)
 
+        print(self.baselink)
+        print(self.endlink)
         # build trac-ik solver
         self.ik = TRAC_IK(self.baselink,
                           self.endlink,
@@ -47,6 +49,7 @@ class BlueIK:
                                        target_pose.position.x, target_pose.position.y, target_pose.position.z,
                                        target_pose.orientation.x, target_pose.orientation.y, target_pose.orientation.z, target_pose.orientation.w)
 
+        print(ik_joints)
         if not len(ik_joints) == len(seed_joint_positions):
             return False
         return ik_joints
@@ -57,6 +60,7 @@ class BlueIK:
         else:
             seed_joint_positions = self.posture_target
 
+        seed_joint_positions = [-0.09532284000000013, -1.59483744, -2.39029252, -0.26890367999999976, 0.5999816199999999, -1.51155072, -2.11197812]
         try:
             # apply lookup transformation desired pose and apply the transformation
             transform = self.tf_buffer.lookup_transform(self.baselink,
@@ -65,6 +69,7 @@ class BlueIK:
                                                    rospy.Duration(0.1)) # wait for 0.1 second
             pose_in_baselink_frame = tf2_geometry_msgs.do_transform_pose(request.end_effector_pose, transform)
 
+            print(pose_in_baselink_frame.pose, seed_joint_positions)
             # get the ik solution
             ik_joints = self.ik_solution(pose_in_baselink_frame.pose, seed_joint_positions)
 

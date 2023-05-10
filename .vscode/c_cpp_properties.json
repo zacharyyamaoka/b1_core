@@ -1,0 +1,29 @@
+{
+  "configurations": [
+    {
+      "browse": {
+        "databaseFilename": "${default}",
+        "limitSymbolsToIncludedHeaders": false
+      },
+      "includePath": [
+        "/home/bam/bam_ws/devel/include/**",
+        "/home/bam/catkin_ws/devel/include/**",
+        "/opt/ros/noetic/include/**",
+        "/home/bam/catkin_ws/src/beginner_tutorials/include/**",
+        "/home/bam/bam_ws/src/blue_core/blue_controllers/include/**",
+        "/home/bam/bam_ws/src/blue_core/blue_hardware_drivers/include/**",
+        "/home/bam/bam_ws/src/blue_core/blue_hardware_interface/include/**",
+        "/home/bam/bam_ws/src/blue_moveit/blue_moveit_demos/include/**",
+        "/home/bam/catkin_ws/src/learning_tf2/include/**",
+        "/home/bam/bam_ws/src/blue_simulator/roboticsgroup_gazebo_plugins/include/**",
+        "/usr/include/**"
+      ],
+      "name": "ROS",
+      "intelliSenseMode": "gcc-x64",
+      "compilerPath": "/usr/bin/gcc",
+      "cStandard": "gnu11",
+      "cppStandard": "c++14"
+    }
+  ],
+  "version": 4
+}

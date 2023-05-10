@@ -1,0 +1,20 @@
+<launch>
+
+  <arg name="model" default="$(find b1_descriptions)/robots/b1_right.urdf.xacro"/>
+  <arg name="gui" default="true" />
+  <arg name="param_file" default="$(find b1_descriptions)/config/robot_parameters_right.yaml" />
+
+  <arg name="rvizconfig" default="$(find urdf_tutorial)/rviz/urdf.rviz" />
+  <param name="robot_description" command="$(find xacro)/xacro $(arg model)" />
+
+   <rosparam
+    file="$(arg param_file)"
+    command="load" />
+
+  <node if="$(arg gui)" name="joint_state_publisher" pkg="joint_state_publisher_gui" type="joint_state_publisher_gui" />
+  <node unless="$(arg gui)" name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" />
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(arg rvizconfig)" required="true" />
+  <!-- <node name="rviz" pkg="rviz" type="rviz" required="true" /> -->
+
+</launch>

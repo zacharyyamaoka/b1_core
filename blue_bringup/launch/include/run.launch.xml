@@ -18,7 +18,7 @@
     unless="$(arg on_stand)" />
 
   <!-- Run core control stack -->
-  <include
+  <!-- <include
     file="$(find blue_bringup)/launch/include/single_arm_control.launch.xml"
     if="$(eval configuration == 'right' or configuration == 'full')">
     <arg name="side" value="right" />
@@ -27,13 +27,13 @@
     file="$(find blue_bringup)/launch/include/single_arm_control.launch.xml"
     if="$(eval configuration == 'left' or configuration == 'full')">
     <arg name="side" value="left" />
-  </include>
+  </include> -->
 
   <!-- Compute forward kinematics and broadcast via tf -->
   <node
     name="robot_state_publisher"
     pkg="robot_state_publisher"
-    type="state_publisher" />
+    type="robot_state_publisher" />
 
   <!-- Support external applications via rosbridge -->
   <include file="$(find rosbridge_server)/launch/rosbridge_websocket.launch">
